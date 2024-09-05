@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simulador</title>
+  </head>
+  <body>
+    <script>
+      function simularParcelas(valor, parcelas) {
+        if (parcelas <= 0) return alert("Número de parcelas inválido.");
+        let valorParcela = valor / parcelas;
+        alert(Valor da parcela: R$ ${valorParcela.toFixed(2)});
+      }
+
+      function simularEmprestimo(valor) {
+        let parcela, restante = valor;
+        while (restante > 0) {
+          parcela = parseFloat(prompt(Restante: R$${restante.toFixed(2)}\nDigite o valor da parcela:));
+          if (parcela <= 0 || parcela > restante) {
+            alert("Valor da parcela inválido.");
+            continue;
+          }
+          restante -= parcela;
+        }
+        alert("Empréstimo quitado!");
+      }
+    </script>
+
+    <button
+      onclick="simularParcelas(parseFloat(prompt('Digite o valor total:')), parseInt(prompt('Digite o número de parcelas:')))"
+    >
+      Simular Parcelas
+    </button>
+    <button
+      onclick="simularEmprestimo(parseFloat(prompt('Digite o valor do empréstimo:')))"
+    >
+      Simular Empréstimo
+    </button>
+  </body>
+</html>
